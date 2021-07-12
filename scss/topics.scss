@@ -1,0 +1,52 @@
+/* 
+Figma Community Forum
+Topic theming
+*/
+
+/* Avatars */
+.topic-post {
+  border-left: 0;
+  border-top: 0;
+
+  .topic-avatar {
+    img {
+      background-color: var(--surface-low-contrast);
+      height: 40px;
+      width: 40px;
+    }
+    .avatar-flair {
+      bottom: -2px;
+      right: -2px;
+    }
+  }
+}
+
+/* Post read dot */
+.read-state {
+  right: -16px;
+  top: 4px;
+}
+
+/* Post menu area */
+section.post-menu-area {
+  padding-left: 14px;
+  margin: 0 0;
+}
+
+/* Post filtering */
+.posts-filtered-notice {
+  background-color: var(--surface-low-contrast);
+  border-radius: 6px;
+  bottom: 16px;
+  margin: 0.5em 0;
+  text-align: unset;
+  .filtered-avatar {
+    & + .names {
+      display: inline-flex;
+      flex: unset;
+    }
+  }
+  .filtered-replies-show-all {
+    margin-left: auto;
+  }
+}

@@ -1,0 +1,76 @@
+/* 
+Figma Community Forum
+CSS Mixins 
+*/
+
+@mixin text-button-large($bg: var(--bold-bg), $txt: var(--bold-fg)) {
+  background-color: $bg;
+  border: 0;
+  box-sizing: border-box;
+  border-radius: 8px;
+  color: $txt;
+  font-weight: 700;
+  font-size: 1.125em;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  padding: 16px 24px;
+  transition: all 200ms;
+  @if $bg == transparent {
+    border: 2px solid $txt;
+  }
+}
+
+@mixin text-button-small($bg: var(--bold-bg), $txt: var(--bold-fg)) {
+  align-items: center;
+  background-color: $bg;
+  border-width: 2px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-radius: 6px;
+  color: $txt;
+  display: inline-flex;
+  font-weight: 700;
+  font-size: 0.875em;
+  height: 30px;
+  line-height: 1;
+  @if $bg == transparent {
+    border-color: $txt;
+  }
+  @if $bg != transparent {
+    border-color: $bg;
+  }
+}
+
+@mixin border-with-shadow($border-width: 2px) {
+  background-color: var(--modal-bg);
+  border: $border-width solid rgb(0, 0, 0);
+  box-sizing: border-box;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+@mixin hud-shadow {
+  background-color: var(--modal-bg);
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.15), 0px 5px 17px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  color: var(--modal-fg);
+}
+
+@mixin btn {
+  align-items: center;
+  background-color: var(--surface-low-contrast);
+  border-radius: 8px;
+  display: inline-flex !important;
+  font-size: 0.8125em;
+  font-weight: 500;
+  min-width: 30px;
+  padding: 0 0;
+  text-transform: capitalize;
+}
+
+@mixin dot($color, $size: 8px) {
+  background-color: $color;
+  border-radius: 50%;
+  height: $size;
+  width: $size;
+}

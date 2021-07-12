@@ -1,0 +1,404 @@
+/* 
+Figma Community Forum
+Menu panels
+------------------------
+
+"Menu panels" consist of any of the dropdown menus that are triggered
+from buttons in the header. These are, from left-to-right:
+
+• Search menu
+• Hamburger panel
+• User menu
+
+They have a general purpose styling, but based on need or mock-up, 
+one or two things have been individually configured for these.
+
+------------------------
+*/
+
+/* This is a class Discourse bestows upon your whole page if your menu
+items trigger a dropdown */
+.drop-down-mode {
+  .d-header-icons {
+    .active {
+      .icon {
+        background-color: transparent;
+        cursor: pointer;
+        .d-icon {
+          color: var(--fg-high-contrast);
+        }
+        &:after {
+          content: none;
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.menu-panel {
+  @include hud-shadow();
+  padding: 8px 0px;
+
+  /* This positions where the dropdown appears on desktop relative
+  to where ul.d-header-icons is */
+  &.drop-down {
+    right: 10px;
+    top: 48px !important;
+  }
+  b {
+    &.topics-count {
+      display: none;
+    }
+  }
+  li {
+    /* These are Latest, Unread, Top, Users, New, Review, etc */
+    a.categories-link {
+      color: var(--modal-fg) !important;
+      font-size: 0.875em;
+      font-weight: 500;
+      padding: 5px 0 !important;
+      &:hover,
+      &:focus {
+        background-color: transparent !important;
+      }
+    }
+    &.category-link {
+      color: var(--modal-fg) !important;
+      font-size: 0.875em;
+      height: 30px;
+      width: 100%;
+      &:hover {
+        background-color: var(--community-blue);
+        a,
+        .badge-category,
+        .category-name,
+        .badge-notification {
+          color: white !important;
+        }
+      }
+      // We want to see the first three categories + the categories links
+      &:nth-of-type(n + 5) {
+        display: none;
+      }
+      a {
+        padding: 5px 0px !important;
+        width: 100%;
+      }
+      .badge-category {
+        color: var(--modal-fg);
+      }
+      .badge-category-bg {
+        margin-left: -24px;
+        margin-right: 16px !important;
+      }
+      .badge-notification {
+        width: unset;
+      }
+    }
+  }
+  hr {
+    border-top: 1px solid var(--surface-high-contrast);
+  }
+  ul {
+    padding: 0px 0px;
+  }
+  .panel-body-bottom {
+    .btn {
+      background-color: unset;
+    }
+  }
+  .widget-link,
+  .categories-link {
+    &:hover,
+    &:focus {
+      background-color: transparent;
+    }
+  }
+}
+
+.menu-links {
+  &.columned {
+    li {
+      display: block;
+      float: none;
+      width: unset;
+    }
+  }
+}
+
+.hamburger-panel {
+  span.badge-category {
+    max-width: unset;
+  }
+  .menu-panel {
+    width: 240px !important;
+    li {
+      /* These are Admin and Settings, but also individual results from 
+      the Search Menu */
+      padding: 0px 24px 0px 48px;
+      &:hover {
+        background-color: var(--community-blue);
+        .d-icon,
+        .d-label {
+          color: white !important;
+        }
+      }
+      a.widget-link {
+        color: var(--modal-fg);
+        overflow: visible;
+        padding: 4px 0px;
+        .d-label {
+          font-size: 0.875em;
+        }
+        .d-icon {
+          color: var(--fg-high-contrast);
+          font-size: 12px;
+          padding: 2px;
+          margin-left: -30px;
+          margin-right: 8px;
+        }
+        &:hover,
+        &:focus {
+          background-color: transparent !important;
+        }
+      }
+    }
+  }
+}
+
+/* Search menu */
+.search-menu {
+  input[type="text"] {
+    font-size: 1em;
+    font-weight: 400;
+    margin-bottom: 0px;
+    padding: 8px 8px;
+    height: revert;
+    width: 100%;
+  }
+  .menu-panel {
+    /* This specialized padding is "fixed" by .results on the
+        bottom of the div */
+    padding: 16px 16px 6px 16px;
+  }
+  .search-context {
+    margin-bottom: 6px;
+    order: 1;
+    padding: 0 0;
+    .d-label {
+      color: var(--fg-medium-contrast);
+      font-size: 0.875em;
+      font-weight: 500;
+      text-decoration: underline;
+      text-transform: capitalize;
+    }
+  }
+  .search-input {
+    margin-bottom: 16px;
+    padding: 0 0;
+    order: 2;
+  }
+  .results {
+    margin-top: 0;
+    order: 3;
+    padding-bottom: 10px;
+    .search-result-topic {
+      width: 100%;
+    }
+  }
+  /* Positions the spinner correctly in the middle */
+  .searching {
+    right: 1.25em;
+    top: 1em;
+  }
+}
+
+/* User menu */
+.user-menu {
+  .menu-links-header {
+    border-bottom: 1px solid #dadada;
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+    button {
+      .active {
+        border-bottom: 0;
+      }
+      &:hover.active,
+      &:focus.active {
+        background-color: transparent;
+      }
+    }
+  }
+  .menu-links-row {
+    .glyphs {
+      button {
+        background: transparent;
+        color: var(--fg-low-contrast);
+        .d-icon {
+          color: var(--fg-low-contrast);
+        }
+        &.active {
+          border: 0px !important;
+          color: var(--fg-high-contrast);
+          .d-icon {
+            color: var(--fg-high-contrast);
+          }
+        }
+        &:hover {
+          background-color: transparent !important;
+          .d-icon {
+            color: var(--fg-high-contrast);
+          }
+        }
+      }
+    }
+  }
+  .quick-access-panel {
+    border-top: 0;
+    margin-top: 0;
+    padding: 16px 0px 0px 0px;
+    ul {
+      display: block;
+      flex-flow: revert;
+    }
+    li,
+    li:not(.show-all) {
+      background-color: transparent;
+      color: var(--fg-medium-contrast);
+      display: block;
+      font-size: 0.875em;
+      margin-bottom: 4px;
+      padding: 4px 12px;
+      &:hover {
+        background-color: var(--community-blue) !important;
+        color: white !important;
+        cursor: pointer;
+        a,
+        span,
+        .d-icon {
+          color: white !important;
+        }
+      }
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+      &.is-warning {
+        .d-icon {
+          color: var(--red);
+        }
+      }
+      button {
+        all: unset;
+      }
+      a,
+      button {
+        color: var(--fg-high-contrast);
+        column-gap: 8px;
+        display: inline-grid !important;
+        font-size: 1em;
+        grid-template-columns: 6px 16px 1fr;
+        margin: 0;
+        padding: 0 0;
+        vertical-align: text-bottom;
+        svg {
+          grid-column: 2;
+        }
+        div {
+          grid-column: 3;
+          width: 100%;
+        }
+      }
+      &:not(.read) {
+        background-color: transparent;
+        a:before {
+          @include dot(var(--red), 6px);
+          content: "";
+          display: block;
+          margin-top: 6px;
+        }
+      }
+      span {
+        &:first-child {
+          color: var(--fg-high-contrast);
+          font-weight: 500;
+          &:after {
+            color: inherit;
+            content: "›";
+            display: inline-block;
+            font-weight: 400;
+            margin: 0 0px 0px 4px;
+            opacity: 0.8;
+          }
+        }
+        &:last-child {
+          font-weight: 400;
+          &:after {
+            content: none;
+          }
+        }
+      }
+      .d-icon {
+        align-self: flex-start;
+        color: var(--fg-medium-contrast);
+        font-size: 16px;
+        margin-right: 8px;
+        margin-top: 2px;
+        padding-top: 0;
+      }
+    }
+    .read {
+      background-color: transparent;
+      color: var(--fg-high-contrast);
+      a {
+        color: var(--fg-high-contrast);
+      }
+    }
+  }
+  #quick-access-notifications {
+    li.read {
+      display: none;
+    }
+  }
+}
+
+#topic-entrance {
+  @include hud-shadow();
+  display: inline-flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 16px 0;
+  transform: translateY(56px);
+  min-width: 160px;
+  button.btn.jump-bottom {
+    margin: 0 0;
+  }
+  button.full {
+    background-color: transparent;
+    border-radius: 0;
+    color: var(--modal-fg);
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin-bottom: 0px;
+    padding: 5px 24px;
+    text-transform: none;
+    transition: color 0s;
+    width: 100%;
+    &:hover,
+    &:focus {
+      background-color: var(--community-blue);
+      color: var(--bold-fg);
+    }
+    br {
+      display: none;
+    }
+    .d-icon {
+      color: inherit;
+      font-size: 12px;
+      margin: 0px 8px 0px -8px;
+      order: -1;
+      transition: color 0s;
+      width: 12px;
+    }
+  }
+}

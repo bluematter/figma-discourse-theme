@@ -1,0 +1,121 @@
+/* 
+Figma Community Forum
+Typography
+*/
+
+/* Inter variable */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url($Inter-Regular) format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url($Inter-Italic) format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url($Inter-Medium) format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url($Inter-MediumItalic) format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url($Inter-SemiBold) format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url($Inter-SemiBoldItalic) format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url($Inter-Bold) format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url($Inter-BoldItalic) format("woff2");
+}
+@font-face {
+  font-family: "Inter var";
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: "Regular";
+  src: url($Inter-Var-Roman) format("woff2");
+}
+@font-face {
+  font-family: "Inter var";
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: italic;
+  font-named-instance: "Italic";
+  src: url($Inter-Var-Italic) format("woff2");
+}
+
+/* This catches any cases in Discourse that aren't covered by the HTML
+tag below */
+$font-stack: "Inter", sans-serif;
+
+:root {
+  --heading-font-family: $font-stack;
+  --font-family: $font-stack;
+}
+
+/* Some of these are not broadly supported, but the settings were taken
+from our static marketing site https://www.figma.com/ */
+html {
+  font-family: $font-stack;
+  font-size: 16px;
+  /* These control the user settings for text size */
+  &.text-size-smaller {
+    font-size: 14px;
+  }
+  &.text-size-larger {
+    font-size: 18px;
+  }
+  &.text-size-largest {
+    font-size: 24px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $font-stack;
+}
+
+img.emoji {
+  font-size: 16px;
+  height: 1.25em;
+  width: 1.25em;
+}

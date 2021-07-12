@@ -1,0 +1,209 @@
+/* 
+Figma Community Forum
+Category banners
+
+This file themes the top-bars of Discourse per category.
+*/
+
+.category-title-header {
+  .category-title-contents {
+    &:after {
+      position: absolute;
+      right: 0;
+      z-index: 0;
+    }
+  }
+  &.category-banner-info {
+    background-color: rgba(255, 199, 0, 0.1) !important;
+  }
+  &.category-banner-sdk {
+    background-color: rgba(0, 136, 204, 10%) !important;
+  }
+  &.category-banner-general {
+    background-color: rgba(35, 109, 246, 0.1) !important;
+    .category-title-contents {
+      position: relative;
+      &:after {
+        bottom: -72px;
+        content: url($general-discussion);
+        height: 180px;
+        width: 282px;
+      }
+    }
+  }
+  &.category-banner-product-questions {
+    background-color: rgba(255, 114, 98, 0.1) !important;
+    .category-title-contents {
+      position: relative;
+      &:after {
+        bottom: -36px;
+        content: url($product-questions);
+        height: 140px;
+        width: 215px;
+      }
+    }
+  }
+  &.category-banner-product-feedback {
+    background-color: rgba(15, 169, 88, 0.1) !important;
+    .category-title-contents {
+      position: relative;
+      &:after {
+        bottom: -36px;
+        content: url($product-ideas);
+        height: 150px;
+        width: 300px;
+      }
+    }
+  }
+  &.category-banner-figjam,
+  &.category-banner-figjam-faqs,
+  &.category-banner-figjam-release-notes,
+  &.category-banner-figjam-questions,
+  &.category-banner-figjam-feedback,
+  &.category-banner-figjam-bugs {
+    background-color: rgba(162, 89, 255, 0.1) !important;
+    .category-title-contents {
+      position: relative;
+      &:after {
+        bottom: -56px;
+        content: url($figjam-board);
+        height: 160px;
+        width: 320px;
+      }
+    }
+  }
+  &.category-banner-mobile-beta {
+    background-color: rgba(105, 155, 247, 0.3) !important;
+    .category-title-contents {
+      position: relative;
+      &:after {
+        bottom: -48px;
+        content: url($mobile-beta);
+        height: 160px;
+        width: 250px;
+      }
+    }
+  }
+  &.category-banner-interactive-components-beta,
+  &.category-banner-ic-questions,
+  &.category-banner-ic-feedback,
+  &.category-banner-ic-bugs,
+  &.category-banner-ic-release-notes {
+    background-color: rgba(199, 185, 255, 0.3) !important;
+    .category-title-contents {
+      position: relative;
+      &:after {
+        bottom: -38px;
+        content: url($ic-beta);
+        height: 142px;
+        width: 272px;
+      }
+    }
+  }
+  &.category-banner-plugin-api,
+  &.category-banner-plugin-announcements,
+  &.category-banner-plugin-questions,
+  &.category-banner-plugin-feedback-and-ideas,
+  &.category-banner-plugin-bugs,
+  &.category-banner-plugin-code-share,
+  &.category-banner-plugin-show-and-tell {
+    background-color: rgba(245, 234, 193, 0.3) !important;
+    .category-title-contents {
+      position: relative;
+      &:after {
+        bottom: -38px;
+        content: url($plugin-api);
+        height: 136px;
+        width: 284px;
+      }
+    }
+  }
+  &.category-banner-rest-api {
+    background-color: rgba(177, 236, 208, 0.3) !important;
+    .category-title-contents {
+      position: relative;
+      &:after {
+        bottom: -16px;
+        content: url($rest-api);
+        height: 136px;
+        width: 284px;
+      }
+    }
+  }
+  &.category-banner-friends-of-figma {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+  }
+}
+
+@media (max-width: 1074px) {
+  .category-banner-interactive-components-beta,
+  .category-banner-ic-questions,
+  .category-banner-ic-feedback,
+  .category-banner-ic-bugs,
+  .category-banner-ic-release-notes {
+    .category-title-contents:after {
+      content: none !important;
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  .category-banner-plugin-api,
+  .category-banner-plugin-announcements,
+  .category-banner-plugin-questions,
+  .category-banner-plugin-feedback-and-ideas,
+  .category-banner-plugin-bugs,
+  .category-banner-plugin-code-share,
+  .category-banner-plugin-show-and-tell {
+    .category-title-contents:after {
+      content: none !important;
+    }
+  }
+}
+
+@media (max-width: 740px) {
+  .category-banner-general {
+    .category-title-contents:after {
+      content: none !important;
+    }
+  }
+  .category-banner-product-feedback {
+    .category-title-contents:after {
+      content: none !important;
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .category-banner-product-questions {
+    .category-title-contents:after {
+      content: none !important;
+    }
+  }
+  .category-banner-mobile-beta {
+    .category-title-contents:after {
+      content: none !important;
+    }
+  }
+}
+
+@media (max-width: 676px) {
+  .category-banner-figjam,
+  .category-banner-figjam-faqs,
+  .category-banner-figjam-release-notes,
+  .category-banner-figjam-questions,
+  .category-banner-figjam-feedback,
+  .category-banner-figjam-bugs {
+    .category-title-contents:after {
+      content: none !important;
+    }
+  }
+}
+
+@media (max-width: 570px) {
+  .category-banner-rest-api {
+    .category-title-contents:after {
+      content: none !important;
+    }
+  }
+}

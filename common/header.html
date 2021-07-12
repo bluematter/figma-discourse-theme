@@ -1,0 +1,43 @@
+<script type="text/discourse-plugin" version="0.8">
+  const container = Discourse.__container__;    
+  const { h } = require('virtual-dom');
+ 
+  api.createWidget('category-header-widget', {
+      tagName: 'span', 
+      html(attrs, state) {
+      
+      const path = window.location.pathname;
+      let category;
+        
+      const controller = container.lookup('controller:navigation/category');
+      category = controller.get("category");
+      
+      if(/^\/c\//.test(path)) {
+          $("body").addClass("category-header");            
+          return h(`div.category-title-header.category-banner-${category.slug}`, {
+              "attributes" : {
+                  "style" : "background-color: #" + category.color + "; color: #" + category.text_color + ";"
+              }
+
+          }, h('div.category-title-contents', [
+                  h('h1', category.name),   
+                  h('p', category.description_text)          
+              ])
+          );
+          } else {
+              $("body").removeClass("category-header");
+          }   
+      }      
+  }),
+
+  api.decorateWidget('category-header-widget:after', helper => {
+      helper.widget.appEvents.on('page:changed', () => {
+          helper.widget.scheduleRerender();
+      });
+  });
+
+</script> 
+
+<script type='text/x-handlebars' data-template-name='/connectors/below-site-header/category-header-widget'>
+  {{mount-widget widget="category-header-widget"}}
+</script>

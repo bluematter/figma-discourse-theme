@@ -1,0 +1,113 @@
+/* 
+Figma Community Forum
+Footer
+*/
+
+/* A majority of this comes from our static marketing site at
+https://www.figma.com/ and will need maintenance in the future */
+
+.footer {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 48px;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  margin: 64px 0 112px 0;
+  .footer-links {
+    h6 {
+      color: var(--fg-high-contrast);
+      font-family: var(--font-family);
+      font-size: 0.875em;
+      font-weight: 700;
+      margin: 16px 0;
+    }
+    a {
+      color: #282828;
+      font-size: 0.875em;
+      font-weight: 400;
+      line-height: 2.25em;
+      margin-bottom: 6px;
+      .d-icon {
+        margin-right: 9px;
+      }
+      .logo-mark {
+        color: var(--fg-high-contrast);
+        fill: currentColor;
+        width: 100px;
+      }
+      .social-icon {
+        fill: currentColor;
+        margin-right: 9px;
+      }
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .social-link {
+      font-family: var(--font-family);
+      font-size: 0.875em;
+      line-height: 1.5;
+      letter-spacing: 0.02;
+      font-feature-settings: "salt" on, "ss01" on, "ss02" on, "ss03" on;
+      white-space: nowrap;
+      margin-bottom: 16px;
+      align-items: center;
+      color: #282828;
+      display: flex;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        display: flex;
+      }
+    }
+  }
+}
+
+@media (max-width: 960px) {
+  .footer {
+    .logo-and-social {
+      display: flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: center;
+      align-items: center;
+      grid-column: 1 / -1;
+      li {
+        display: inline-block !important;
+      }
+      .social-link {
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .footer {
+    gap: 24px;
+    margin: 0 0 0 0;
+    padding: 56px 8px;
+  }
+}
+
+@media (max-width: 700px) {
+  .footer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .footer {
+    .footer-links {
+      .social-link {
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+}

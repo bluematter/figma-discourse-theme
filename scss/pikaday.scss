@@ -1,0 +1,34 @@
+/* 
+Figma Community Forum
+Date Picker (pikaday)
+
+Base Source:
+https://sjc3.discourse-cdn.com/business7/stylesheets/app/assets/stylesheets/vendor/pikaday.scss
+------------------------
+*/
+@import "typography";
+
+.pika-button {
+  font-family: $font-stack;
+}
+
+.picker-panel {
+  background-color: var(--surface-low-contrast) !important;
+  border: 1px solid var(--surface-high-contrast) !important;
+  border-radius: 6px;
+}
+
+.pika-single,
+.pika-label,
+.pika-button {
+  background: transparent;
+  color: var(--fg-high-contrast);
+}
+
+.is-selected {
+  .pika-button {
+    background-color: var(--community-blue);
+    color: var(--bold-fg);
+    box-shadow: none;
+  }
+}

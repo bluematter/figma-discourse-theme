@@ -1,0 +1,88 @@
+/* 
+Figma Community Forum
+Modals
+*/
+
+/* General modal theming */
+
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+}
+
+.modal {
+  .modal-header,
+  .modal-body {
+    border-bottom: 0;
+    padding: 8px 16px;
+  }
+  &.has-tabs {
+    .modal-tabs {
+      li.modal-tab {
+        margin-right: 16px;
+        padding: 4px 0;
+        position: relative;
+        &.is-active {
+          background: transparent;
+          color: var(--fg-high-contrast);
+        }
+      }
+    }
+  }
+}
+
+.modal-inner-container {
+  @include hud-shadow();
+  .modal-header {
+    .modal-close {
+      padding: 4px;
+      .d-icon {
+        color: var(--fg-high-contrast);
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.modal-footer {
+  border-top: 0;
+}
+
+/* The share and invite modal appears at the bottom of every forum 
+thread/post. */
+.share-topic-modal {
+  transition: all 0.15s ease-out;
+  input[type="text"] {
+    margin-bottom: 16px;
+  }
+  .sources {
+    max-width: unset;
+    gap: 12px;
+    button {
+      margin: 0 0 0 0 !important;
+      &:first-of-type {
+        margin: 0 0 0 auto !important;
+      }
+    }
+    .social-link {
+      font-size: unset !important;
+      .d-icon {
+        color: var(--fg-high-contrast);
+        font-size: 16px; // Icon
+      }
+      .d-icon-fab-twitter-square {
+        color: var(--fg-high-contrast);
+      }
+    }
+  }
+  .topic-share-url {
+    resize: none;
+  }
+}
+
+// Theme entries in the keyboard shortcut modal
+kbd {
+  background: var(--bold-bg);
+  border: none;
+  color: var(--bold-fg);
+}

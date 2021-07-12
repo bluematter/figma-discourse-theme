@@ -1,0 +1,317 @@
+/* 
+Figma Community Forum
+Panels
+
+Panels are any elements that appear outside of the menu/header context.
+These include:
+
+• Share link from individual posts/comments
+• User cards from clicking a user's avatar
+
+*/
+
+/* 
+SHARE LINK
+
+Share Links are triggered from individual posts from the post controls.
+They have the 'link' icon.  
+
+#share-link is a unique div and can only be incurred once on page,
+making the # selector valid and extremely precise for this.
+*/
+#share-link {
+  @include hud-shadow();
+  padding: 16px 16px;
+  width: 25vw;
+  z-index: 9999;
+  .title {
+    h3 {
+      font-size: 1em;
+      font-weight: 500;
+      text-transform: capitalize;
+    }
+  }
+  input[type="text"] {
+    border: 1px solid var(--surface-high-contrast);
+    border-radius: 2px;
+    font-size: 0.875em;
+    padding: 4px 8px;
+    transition: border-color 0.15s ease-out;
+    &:hover {
+      border-color: var(--fg-low-contrast);
+    }
+    &:focus {
+      border-color: $tertiary;
+    }
+  }
+  .actions {
+    align-items: center;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 8px;
+    .sources {
+      max-width: unset;
+      .social-link {
+        font-size: unset;
+        margin-right: 12px;
+        .d-icon {
+          color: var(--fg-high-contrast);
+          font-size: 16px;
+        }
+        .d-icon-fab-twitter-square {
+          color: var(--fg-high-contrast);
+        }
+      }
+    }
+    .alt-actions {
+      height: unset;
+      .reply-as-new-topic {
+        background-color: transparent;
+        border-radius: 3px;
+        font-size: 0.875em;
+        padding: 4px;
+        transition: all 0.15s ease-in;
+        &:hover {
+          background-color: var(--surface-low-contrast);
+        }
+        .new-topic {
+          color: var(--fg-high-contrast);
+          margin-right: 4px;
+        }
+      }
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 8px;
+      .d-icon {
+        font-size: 12px; // Icon
+      }
+    }
+  }
+}
+
+/* 
+USER CARDS 
+
+A User Card can be opened by clicking most avatars in Discurse.
+
+#user-card is a unique div and can only be incurred once on page,
+making the # selector valid and extremely precise for this.
+*/
+
+#user-card {
+  @include hud-shadow();
+  overflow: hidden;
+  max-width: 480px;
+  .card-content {
+    background-color: var(--modal-bg);
+    color: var(--modal-fg);
+    padding: 0;
+    .card-row {
+      padding-left: 10px;
+      padding-right: 10px;
+      &:first-of-type {
+        align-items: center;
+        padding: 10px;
+      }
+      &:last-of-type {
+        background-color: transparent;
+        padding: 10px;
+      }
+    }
+    .metadata-row {
+      margin-top: 0;
+      font-size: 0.875em;
+      h3:not(:last-of-type)::after {
+        content: "·";
+        display: inline-block;
+        margin-left: 4px;
+      }
+      span {
+        color: var(--fg-high-contrast);
+        font-weight: 500;
+      }
+      span.desc {
+        color: var(--fg-high-contrast);
+        font-weight: 400;
+      }
+    }
+  }
+  .user-card-avatar {
+    margin-top: 0px;
+    height: 64px;
+    width: 64px;
+    img.avatar {
+      width: 60px;
+      height: 60px;
+    }
+    .avatar-flair {
+      background-size: 20px 20px;
+      height: 20px;
+      right: 0;
+      width: 20px;
+    }
+  }
+  .names {
+    display: flex;
+    flex-flow: row wrap;
+    height: fit-content;
+    h1 {
+      align-items: center;
+      display: inline-flex;
+      flex-basis: 100%;
+      font-size: 1.25em;
+      font-weight: 500;
+      a {
+        color: var(--fg-high-contrast);
+      }
+      span {
+        font-size: 1em;
+      }
+    }
+    h2 {
+      display: inline-block;
+      font-size: 0.875em;
+      font-weight: 400;
+      &.full-name {
+        align-items: center;
+        color: var(--fg-medium-contrast);
+        font-size: 0.875em;
+        font-weight: 500;
+        padding-right: 1ch;
+      }
+    }
+    .emoji {
+      height: 12px;
+      margin-left: 4px;
+      vertical-align: 0px;
+      width: 12px;
+    }
+  }
+  .usercard-controls {
+    text-align: right;
+    .btn {
+      align-items: center;
+      display: inline-flex;
+      height: revert;
+      min-width: revert;
+      width: revert;
+
+      &:hover {
+        .d-icon {
+          color: var(--fg-high-contrast);
+        }
+      }
+      span.d-button-label {
+        font-size: 0.875em;
+        padding-left: 4px;
+        order: 1;
+        text-align: right;
+        white-space: nowrap;
+      }
+      .d-icon {
+        color: var(--fg-high-contrast);
+        font-size: 16px; // Icon
+        margin-left: 12px;
+        margin-right: 3px;
+        order: 2;
+      }
+    }
+    .btn-primary {
+      background-color: transparent;
+      border: 0;
+      display: inline-block;
+      height: 18px;
+      margin-bottom: 8px;
+      padding: 0px;
+      text-align: center;
+      width: 30px;
+      &:hover {
+        background-color: var(--surface-low-contrast) !important;
+        border: 0;
+      }
+      span.d-button-label {
+        display: none;
+      }
+      .d-icon {
+        filter: invert(0);
+        font-size: 16px; // Icon
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+    .compose-pm {
+      margin-bottom: 0px;
+    }
+  }
+  .badge-section {
+    flex-wrap: wrap;
+    .user-badge,
+    .more-user-badges {
+      background: transparent;
+      border: none;
+      color: var(--fg-medium-contrast);
+      .fa {
+        color: inherit !important;
+      }
+      a {
+        color: var(--fg-medium-contrast);
+        margin: 0;
+      }
+    }
+    .more-user-badges,
+    .more-user-badges > a {
+      background: transparent;
+      border: none;
+    }
+  }
+}
+
+/* AUTOCOMPLETE */
+
+.autocomplete {
+  @include hud-shadow();
+  padding-bottom: 4px;
+  width: 360px;
+  ul {
+    li {
+      border-bottom: none;
+      a {
+        padding: 6px 12px;
+        img {
+          margin-right: 4px;
+        }
+        span {
+          color: var(--modal-fg);
+          font-size: 0.875em;
+        }
+      }
+    }
+  }
+}
+
+/* EMOJI PICKER */
+
+.emoji-picker {
+  @include hud-shadow;
+  .btn {
+    min-width: unset;
+  }
+  .emoji-picker-category-buttons {
+    border-right: 1px solid var(--surface-high-contrast);
+    padding: 4px 8px;
+    width: 32px;
+    .category-button {
+      padding: 6px;
+      img {
+        margin-right: 0px;
+      }
+    }
+  }
+  .emoji-picker-search-container {
+    border-bottom: 1px solid var(--surface-high-contrast);
+    padding: 4px 12px;
+  }
+}

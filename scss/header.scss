@@ -1,0 +1,259 @@
+/* 
+Figma Community Forum
+Header
+
+This file themes the top-bar of Discourse. There is a setting 
+($header-text) in common.scss that controls whether or not the title
+is shown. 
+*/
+
+.d-header {
+  border-bottom: 1px solid var(--surface-high-contrast);
+  box-shadow: none;
+  height: 72px;
+  // margin-bottom: 32px;
+  > .wrap {
+    width: 100%;
+  }
+  #site-text-logo {
+    font-size: 0;
+    /* We decided to NOT show the title of the website at launch */
+    @if $header-text {
+      align-items: center;
+      display: inline-flex;
+      font-family: $heading-stack;
+      font-size: 1.5em;
+      font-weight: 500;
+      height: 42px;
+      line-height: 1em;
+      letter-spacing: 0.03em;
+    }
+  }
+  #site-text-logo:before {
+    content: url($figma-icon);
+    display: block;
+    height: 42px;
+    margin-left: 8px;
+    margin-right: 30px;
+    width: 28px;
+  }
+  #site-logo {
+    height: 42px;
+    margin-left: 8px;
+    margin-right: 22px;
+  }
+  .panel {
+    height: 40px;
+    align-items: end;
+    display: inline-grid;
+    grid-auto-flow: column;
+  }
+  .header-buttons {
+    grid-column: 2;
+    margin-top: 0;
+    .btn {
+      @include text-button-large();
+    }
+    .btn:hover {
+      background-color: var(--bold-bg);
+      color: var(--bold-fg);
+    }
+    .login-button {
+      font-size: 1.125em !important;
+      height: revert;
+      margin-left: 16px;
+      .d-icon {
+        display: none;
+      }
+    }
+    .login-button:hover {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+.category-header {
+  #main-outlet {
+    padding-top: unset !important;
+  }
+}
+
+.d-header-icons {
+  display: inline-flex;
+  grid-column: 1;
+  li {
+    float: none;
+    display: block;
+    width: 40px;
+    height: 40px;
+    padding: 0 8px;
+    &:last-of-type {
+      padding-right: 0;
+    }
+  }
+  .d-icon {
+    color: var(--fg-high-contrast);
+    font-size: 16px; // Icon
+  }
+  .icon {
+    float: none;
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+    border-top: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    img.avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+    }
+    .unread-notifications {
+      background-color: var(--red);
+    }
+  }
+  .icon:hover,
+  .icon:focus,
+  .active {
+    background-color: transparent !important;
+    border-top: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    .d-icon {
+      color: var(--fg-high-contrast);
+    }
+  }
+}
+
+/* This provides theming to a component installed in Discourse called 
+"Versatile Banner" that powers the "Welcome to the Figma Community
+Forum" header on desktop. */
+
+#main {
+  .banner-box {
+    background-color: rgba(35, 109, 246, 0.1);
+    display: flex;
+    .button-container {
+      margin-right: 0px;
+      z-index: 9999;
+      .close {
+        .d-button-label {
+          display: none;
+        }
+        .d-icon {
+          color: var(--bold-fg);
+        }
+      }
+    }
+    .container {
+      align-items: center;
+      align-self: center;
+      display: flex;
+      margin: 0px auto;
+      max-width: 1200px !important;
+      position: relative;
+      height: 200px;
+      width: 90vw !important;
+      .button-container {
+        align-self: flex-end;
+      }
+      .section-header {
+        padding-bottom: 0px;
+        &:after {
+          bottom: 32px;
+          content: url($banner);
+          height: 150px;
+          position: absolute;
+          right: 0;
+          width: 256px;
+          z-index: -1;
+        }
+      }
+    }
+    .banner-subtitle,
+    .banner-title {
+      color: black !important;
+      cursor: default;
+      font-family: $font-stack;
+      margin-bottom: 0;
+      text-align: left;
+    }
+    .banner-subtitle {
+      font-size: 1em;
+      font-weight: 500;
+    }
+    .banner-title {
+      font-size: 2.5em;
+      font-weight: 600;
+      line-height: 1em;
+      margin-bottom: 0.4em;
+    }
+  }
+}
+
+/* Category headers */
+
+.category-title-header {
+  align-items: center;
+  color: black !important;
+  height: 200px;
+  justify-content: left !important;
+  max-height: 200px !important;
+  text-align: left !important;
+  .category-title-contents {
+    margin: 0px auto;
+    max-width: 1200px !important;
+    padding: unset !important;
+    width: 90vw !important;
+    h1 {
+      cursor: default;
+      font-family: $font-stack;
+      font-size: 2.5em;
+      font-weight: 600;
+    }
+    .category-title-description {
+      cursor: default;
+      font-family: $font-stack;
+      font-size: 1em;
+      font-weight: 500;
+    }
+  }
+}
+
+/* When we display .topic-navigation to the right of the topic post,
+this pushes it Header+24px from the top */
+@media screen and (min-width: 925px) {
+  .container.posts .topic-navigation {
+    top: 124px;
+  }
+}
+
+/* Hide the banner image when we hit a breaking width */
+@media screen and (max-width: 1100px) {
+  .section-header {
+    &:after {
+      content: none !important;
+    }
+  }
+}
+
+/* When showing the header-text, at certain sizes of screen it becomes
+untenable to display it without breaking the layout. These rules hide
+the text entirely when it reaches break points */
+@if $header-text {
+  @media (max-width: 700px) {
+    .d-header {
+      #site-text-logo {
+        font-size: 0;
+      }
+    }
+  }
+
+  @media (max-width: 540px) {
+    .d-header {
+      #site-text-logo {
+        font-size: 0;
+      }
+    }
+  }
+}

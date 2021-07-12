@@ -1,0 +1,64 @@
+/* 
+Figma Community Forum
+Voting
+
+Discourse supports in-forum voting. Figma's Forum using this for voting
+on specific Product Ideas.
+*/
+
+.title-voting {
+  float: none;
+  margin-bottom: 1em;
+  padding-top: 0;
+}
+
+.voting-popup-menu {
+  padding: 8px 16px;
+}
+
+.voting-wrapper {
+  display: inline-flex;
+  .vote,
+  .nonvote,
+  .voting-closed {
+    button {
+      background-color: transparent;
+      border-color: $primary;
+      border-radius: 0 6px 6px 0;
+      color: $primary;
+      display: inline-block;
+      font-size: 1em;
+      height: 100%;
+      margin-top: 0;
+      margin-left: 0;
+      text-align: center;
+      transition: 200ms all;
+      width: 72px;
+      &:focus {
+        background: $tertiary;
+        color: var(--bold-fg);
+        outline-width: 0 !important;
+      }
+    }
+  }
+  .vote {
+    button {
+      background-color: $primary;
+      border-color: $primary;
+      color: var(--bold-fg);
+      &:hover {
+        background-color: $primary !important;
+        border-color: $primary !important;
+      }
+    }
+  }
+  .vote-count-wrapper {
+    border: 2px solid $primary;
+    border-radius: 6px 0 0 6px;
+    border-right: 0;
+    font-size: 1em;
+    height: 24px;
+    min-width: 24px;
+    padding: 2px 12px;
+  }
+}
